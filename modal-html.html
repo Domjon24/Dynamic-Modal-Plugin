@@ -1,0 +1,237 @@
+
+<html>
+ <body>
+<script type='module'>
+
+    export function getCurrentSystemHour() {
+
+        var now = new Date();
+        var hours = now.getHours();
+        var timeValue = hours;
+        
+        return timeValue;
+    }
+
+        document.addEventListener('DOMContentLoaded', () => {
+        
+        const modalContainer = document.getElementById('innerModal');
+        const outerModal = document.getElementById('modalContainer');
+        const myImage = document.getElementById("imgId"); 
+        const modalTitle = document.getElementById("modalTitle");
+        const currentHour = getCurrentSystemHour();
+            if (currentHour  >= 0 && currentHour  < 4){ 
+                    modalContainer.classList.add('night');
+                    modalTitle.innerHTML = "Hey There, Night Owl"
+                    myImage.src = 'https://images.prismic.io/doron-supply/aLi5SmGNHVfTOnjf_DTPRO_DPIScale_42-DPI-min.jpg?auto=format,compress';
+                    //  console.log(currentHour + ' night');
+            }
+
+            else if (currentHour  >= 5 && currentHour  < 11){
+                modalContainer.classList.add('morning');
+                myImage.src = 'https://www.kopanko.com/_astro/cmcs5168rm3g407t4x60ka9pw_Z2mlpDV.webp';
+                modalTitle.innerHTML = "Morning, Early Bird"
+                // console.log(currentHour + ' morning');
+            }
+            else if (currentHour  >= 11 && currentHour  < 17){
+                modalContainer.classList.add('afternoon');
+                modalTitle.innerHTML = "You're not gonna want to miss this...";
+                
+                myImage.src = 'https://www.doronsupply.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fdoron-supply%2FaLi5PWGNHVfTOnjK_alg_bi-min.jpg%3Fauto%3Dformat%2Ccompress&w=640&q=75';
+                // console.log(currentHour + ' afternoon');
+            }
+            else if (currentHour  >= 17 && currentHour < 24){
+                modalContainer.classList.add('night');
+                modalTitle.innerHTML = "Hey There, Night Owl"
+                myImage.src = 'https://images.prismic.io/doron-supply/aLi5SmGNHVfTOnjf_DTPRO_DPIScale_42-DPI-min.jpg?auto=format,compress';
+                    
+                // console.log(currentHour + ' night');
+            }
+                    else {
+                        modalContainer.classList.add('default')
+                        modalTitle.innerHTML = "Black Friday Sale!"
+                        // console.log(currentHour + ' Unable to get valid system time. Reverting to default theme');
+                    }
+            document.addEventListener("click", (event) => {
+    const modal = document.getElementById('modalContainer');
+    const isInsideModal = modal.contains(event.target);
+    const isCloseButton = event.target.closest('.eig-close, .eig-btn-secondary');
+
+    if (!isInsideModal && !isCloseButton) {
+        modal.classList.remove('hidden');
+        // console.log('click worked');
+    }
+});
+                }, {once : true});
+
+        console.log('hour is ' + getCurrentSystemHour());
+</script>
+
+<!--HTMLs tarts here -->
+    <div id="modalContainer" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-content eig-modal" style="animation:eig-zoom 280ms ease-out both;">
+    <div class="eig-inner">
+      <div class="eig-media">
+        <img id="imgId" src="https://expertise.ai/exit-intent/martin-martz-9aNG_QTyDSk-unsplash.webp" alt="Modal image" />
+      </div>
+      <div class="eig-content" id="innerModal">
+        <div style="display:flex;justify-content:flex-end">
+          <button class="eig-close modal__close" label="Close" onclick="document.getElementById('modalContainer').style.display='none'">X</button>
+        </div>
+        <h3 id="modalTitle" style="font-size:24px;font-weight:700;margin:0 0 8px"></h3>
+        <p style="font-size:16px; color: #e5e7eb; font-weight: 500; opacity:.9;margin:0 0 16px">2025's Biggest Sale Starts Now. Save Up to 70% OFF + Free Shipping. Only on Black Friday</p>
+        <div class="eig-actions">
+          <a class="eig-btn eig-btn-primary" target="_blank" href="http://DominiqueKJones.com">Learn More</a>
+          <a class="eig-btn eig-btn-secondary" href="#" onclick="document.getElementById('modalContainer').style.display='none'">Close</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  .modal.hidden {
+    visibility: hidden;
+    display: none !important;
+  }
+
+  #modalContainer {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1rem 3rem;
+  }
+
+  .eig-modal {
+    width: 100%;
+    max-width: min(92vw, 560px);
+    background: rgb(122, 122, 122);
+    color: #111827;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  }
+
+  .eig-inner {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .eig-media {
+    flex: 0 0 40%;
+    min-width: 180px;
+    max-width: 260px;
+  }
+
+  .eig-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .eig-content {
+    padding: 24px;
+    flex: 1;
+  }
+
+  .eig-close {
+    background: transparent;
+    border: 0;
+    color: #111827;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .eig-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .eig-btn {
+    display: inline-flex;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 10px;
+  }
+
+  .eig-btn-primary {
+    background: #111827;
+    color: #ffffff;
+  }
+
+  .eig-btn-secondary {
+    background: #e5e7eb;
+    color: #111827;
+  }
+
+  @keyframes eig-zoom {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .eig-inner {
+      flex-direction: column;
+    }
+    .eig-media {
+      max-width: none;
+      min-width: auto;
+      width: 100%;
+    }
+  }
+
+  
+  .gradient-background-morning, .morning, .default {
+    background: linear-gradient(300deg,#ea6f1b,#e3a328,#f9e740);
+    background-size: 180% 180%;
+    animation: gradient-animation-morning 18s ease infinite;
+  }
+  @keyframes gradient-animation-morning {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+
+  .gradient-background-afternoon, .afternoon {
+    background: linear-gradient(300deg,deepskyblue,#0000007c,#20655f);
+    background-size: 180% 180%;
+    animation: gradient-animation-afternoon 18s ease infinite;
+    
+  }
+   .afternoon > p{
+    color: black;
+  }
+  @keyframes gradient-animation-afternoon {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+
+  .gradient-background-night, .night {
+    background: linear-gradient(300deg,#24044e,#270272,#6243a1,#fdffb6);
+    background-size: 240% 240%;
+    animation: gradient-animation-night 24s ease infinite;
+  }
+  @keyframes gradient-animation-night {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+</style>
+</body>
+</html>
