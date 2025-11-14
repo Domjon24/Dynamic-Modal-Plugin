@@ -11,8 +11,9 @@ This modal was designed using [this modal generator](https://www.expertise.ai/to
 I used javascript to grab the users system time and it outputs a pre-designed modal based on what their local time is. 
 
 <h1>How to Start</h1>
-This plugin can go on any wordpress webpage, and only triggers once. It uses a shortcode. To add, click on "Add Block" (+) button in the editor, search for 'shortcode' and click to add.
-In the shortcode block, type in [modal] (Be sure to include brackets). This will not add anything to the page, it will just trigger the modal popup.
+<p>To begin, download this repo as a .zip, and do NOT extract. Then go to your wordpress admin dashboard, click add plugin, upload, and drag the .zip file to the uploader.</p>
+<p>This plugin can go on any wordpress webpage, and only triggers once. It uses a shortcode. To add, click on "Add Block" (+) button in the editor, search for 'shortcode' and click to add.
+In the shortcode block, type in [modal] (Be sure to include brackets). This will not add anything to the page, it will just trigger the modal popup.</p>
 
 
 <h4>Morning Modal</h4>
@@ -37,4 +38,4 @@ In the shortcode block, type in [modal] (Be sure to include brackets). This will
 <br>
 
 <h1>Errors & Updates</h1>
-<p>As of now, there are no server-side options for customizing the modal. Development for that is currently in progress</p>
+<p>As of now, there are no server-side options for customizing the modal. Development for that is currently in progress and will release in V2</p>
